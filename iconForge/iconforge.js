@@ -1,5 +1,5 @@
-steal('steal/less', 'jquery', 'jquery/controller')
-.then('./layout.less', './theme.less', 'iconInspector', 'iconBuilder', './aboutIconForge.js')
+steal('steal/less', 'jquery', 'jquery/controller', 'jquery/view', 'jquery/view/ejs')
+.then('./layout.less', './theme.less', 'iconInspector', 'iconBuilder', './aboutIconForge.js', '//iconForge/page.ejs')
 .then(function(){
 	
 	var SectionControllersByName = {
@@ -18,6 +18,7 @@ steal('steal/less', 'jquery', 'jquery/controller')
 	{
 		
 		init: function() {
+			this.element.html('//iconForge/page.ejs', {});
 			this.changePageSection("about");
 		},
 		
@@ -41,6 +42,6 @@ steal('steal/less', 'jquery', 'jquery/controller')
 	});
 }).then(function(){
 	$(document).ready(function(){
-		new IconForgeController(this);
+		new IconForgeController($("body"));
 	});
 });
