@@ -1,0 +1,116 @@
+body {
+	background: url(../common/images/noisebgr.png) repeat;
+}
+
+header > h1 {
+	text-indent: -99999px;
+	background: url(../common/images/iconFORGE.png) no-repeat 40px 50%;
+	height: 100px;
+}
+
+nav, div.content > div {
+	border: solid 1px #CCC;
+}
+
+div.content {
+	border-right: none;
+	border-left: none;
+}
+
+nav {
+	background: white;
+}
+
+nav, nav a:first-child span {
+	border-top-left-radius: 20px;
+}
+
+nav, nav a:last-child span {
+	border-bottom-left-radius: 20px;
+}
+
+nav a {
+	display: block;
+	width: 100%;
+	
+	margin: 0;
+	/*padding-right: 30px;*/
+}
+
+nav a span {
+	line-height: 50px;
+	display:inline-block;
+	vertical-align:middle;
+	text-indent: 20px;
+	width: 100%;
+}
+
+nav a:hover span {
+	background-color: #EDEDED;
+	border-right: none;
+	border-left: none;
+}
+
+nav a.selected span {
+	line-height: 48px;
+	background-color: #CDCDCD;
+	border: solid 1px #ADADAD;
+	margin-right: -1px;
+	border-right: none;
+	text-indent: 40px;
+}
+
+nav > a.selected::after {
+	display: inline-block;
+	content: "";
+
+	width: 30px;
+	margin-left: 1px;
+	float: right;
+	position: absolute;
+
+	border-top: solid 25px transparent;
+	border-bottom: solid 25px transparent;
+	border-left: solid 15px #CDCDCD;
+	border-right: none;
+}
+
+div.content > div {
+	background: rgba(0,0,0,0.25);
+	height: 100%;
+}
+
+footer {
+	text-align: center;
+	vertical-align: middle;
+}
+
+div.aboutContent {
+	margin: 40px 40px 40px 40px;
+	padding: 20px 40px 20px 40px;
+
+	background: #EFEFEF;
+	border: solid 1px #888;
+	border-radius: 5px;
+	
+	p, ul {
+		text-align: justify;
+		
+		li {
+			padding-bottom: 10px;
+			text-align: justify;
+		}
+	}
+	
+	dl {
+		dt {
+			float: left;
+			width: 150px;
+		}
+		
+		dd {
+			margin-left: 150px;
+			margin-bottom: 10px;
+		}
+	}
+}

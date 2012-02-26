@@ -1,0 +1,32 @@
+<div class="iconEntry clearfix" <%= entry %>>
+	<div class="entryAttributes">
+		<dl>
+			<dt>Size:</dt>
+			<dd>
+				<select name="resolution">
+					<% for(var resIndex in availableResolutions) {
+						var resolution = availableResolutions[resIndex];
+					%>
+						<option value="<%= resolution %>" <%= (resolution === entry.resolution ? "selected='selected'" : "") %> >
+							<%= resolution %>px
+						</option>
+					<% } %>
+				</select>
+			</dd>
+
+			<dt>Image Format:</dt>
+			<dd>
+				<select disabled="disabled" >
+					<option>PNG</option>
+				</select>
+			</dd>
+		</dl>
+	</div>
+	<div class="preview">
+		<h5>
+			<span>Preview:</span>
+			<a class="removeEntry"><span class="top"/><span class="bottom"/></a>
+		</h5>
+		<img width="<%= entry.resolution %>" height="<%= entry.resolution %>" src="<%= entry.imageURL %>" />
+	</div>
+</div>

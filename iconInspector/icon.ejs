@@ -1,0 +1,32 @@
+<h2>Total entries: <%= entries.length %></h2>
+
+<% for( var entryCount = 0; entryCount < entries.length; entryCount++ ) { %>
+	<% var entry = entries[entryCount]; %>
+	<div class="iconEntry clearfix">
+		<div class="entryAttributes">
+			<dl>
+				<dt>Size:</dt>
+				<dd><%= entry.width || 256 %>px</dd>
+
+				<dt>Colors in palette:</dt>
+				<dd><%= (entry.paletteSize?entry.paletteSize.toString() + " colors":"No palette") %></dd>
+
+				<dt>Color planes:</dt>
+				<dd><%= entry.colorPlanes %></dd>
+
+				<dt>Color depth:</dt>
+				<dd><%= entry.colorDepth %> bpp</dd>
+
+				<dt>Image size:</dt>
+				<dd><%= entry.imageSize %> bytes</dd>
+
+				<dt>Image offset:</dt>
+				<dd><%= entry.imageOffset %> bytes</dd>
+			</dl>
+		</div>
+		<div class="preview">
+			<h5>Preview:</h5>
+			<img src='<%= entry.getImageData().toDataURL() %>' />
+		</div>
+	</div>
+<% } %>

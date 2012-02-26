@@ -1,0 +1,33 @@
+<div class="aboutContent">
+	<h3>About IconFORGE</h3>
+	<p>IconFORGE is a simple webapp that allows inspecting and building Icon files to use under Windows. This app started as a project to test Javascript capabilities of editing binary files, and as the need to build custom 256px transparency-enabled icons rose, this test became an icon packing app. What this app tries to achieve is to remove the need of downloading extra software when all you want is to simply create an .ico file with a picture of your own. As this app is a product of my spare time, I cannot guarantee any kind of updates or fixes.</p>
+	
+	<h3>Disclaimer</h3>
+	<p>Let's keep this short. I will not be held responsible of any kind of damage that you, your computer/software/pet or any kind of thing you consider valuable sustains from the use of this app. You are using this app at your own risk. A brief test of the application showed that the chances of a nuclear fission happening in your computer due to the use of this app is astronomically low, so you can rest assured that it is extremely improbable that you wipe out your entire neighborhood while forging some nifty icons.</p>
+	
+	<h3>How to use</h3>
+	<ul>
+		<li>On the inspect section you can open (by clicking the button or drag-dropping the file directly from your computer onto the same button) and see all the entries on an icon file (being entries it's different images in their different sizes).</li>
+		<li>On the build section you can add images (click to select a file or drop one or several files over the same button) to build your icon. Every image entry will have the option to choose the resolution which the image will be stored in the icon file (it's advisable to scale your images with third party programs if possible, as they offer better scaling algorithms than the browser). Once you added all of your images you can input the filename to download at the right of the "Total entries" title, and click export to download the compiled file.</li>
+	</ul>
+	
+	<h3>Limitations</h3>
+	<ul>
+		<li>Icon image files will all be stored in PNG format (Windows XP or earlier machines won't be able to display them correctly).</li>
+		<li>All icons are exported with 32bpp color depth.</li>
+		<li>When inspecting icons, entries with lower than 32bpp color depth fail to display the entry's image.</li>
+		<li>Works under Google Chrome and Firefox.</li>
+	</ul>
+	
+	<h3>Frameworks and libraries used</h3>
+	<dl>
+		<dt>jQuery:</dt>
+		<dd>Handling DOM elements made easy (and tons of other cool features).</dd>
+
+		<dt>JavascriptMVC 3.2:</dt>
+		<dd>Although its a bit of overkill for this tiny app, JavascriptMVC is a great framework to consistently divide a web application and keep the implementation clean and simple.</dd>
+		
+		<dt>Less:</dt>
+		<dd>JS transformer that provides it's own extended CSS syntax, with tons of shortcuts and sintax simplifications.</dd>
+	</dl>
+</div>

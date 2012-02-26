@@ -1,0 +1,192 @@
+@import "../common/css/cssGradientButton.less";
+@import "../common/css/cssHacks.less";
+
+
+div.builderContent {
+	
+	margin: 40px 40px 40px 40px;
+
+	div.uploadButton {
+		.cssGradientButton(100px);
+	}
+
+	div.iconData {
+		margin-top: 40px;
+		
+		background: #EFEFEF;
+		border: solid 1px #888;
+		padding: 10px 10px 10px 10px;
+		border-radius: 5px;
+
+		div.builderHeader {
+			@line-height: 50px;
+			
+			line-height: @line-height;
+			height: @line-height;
+			
+			vertical-align: middle;
+			padding: 10px 0px 10px 0px;
+			
+			h3 {
+				margin: 0;
+				display: inline-block;
+			}
+			
+			& > div {
+				float: right;
+				line-height: 1em;
+				display: inline-block;
+				padding-top: @line-height / 4; 
+				
+				a.downloadIcon {
+					.cssGradientButton(@line-height/2 - 5);
+
+					text-decoration: none;
+					color: black;
+					
+					display: inline-block;
+					padding: 5px 5px 5px 5px;
+					border-radius: 4px;
+				}
+			}
+		}		
+		
+		div.iconEntry {
+			
+			width: 100%;
+			margin-top: 10px;
+			border-top: solid 1px #BBB;
+			border-bottom: solid 1px #BBB;
+			background: #FEFEFE;
+			
+			div.preview {
+				float: right;
+				width: 270px;
+				
+				a.removeEntry {
+					@outer-color: #FFAAAA;
+					@inner-color: red;
+					
+					@inner-color-hover: white;
+					
+					@outer-color-active: @inner-color;
+					@inner-color-active: @outer-color;
+					
+					@element-size: 12px;
+					@radius-size: 4px;
+					@figure-thikness: 2px;
+					
+					float: right;
+					position: relative;
+					left: -@element-size;
+					top: -@element-size / 2;
+					
+					display: inline-block;
+					width: @element-size + @figure-thikness * 2;
+					height: @element-size + @figure-thikness * 2;
+					
+					font-size: @element-size;
+					text-align: center;
+					
+					border-radius: @radius-size;
+					border: solid @radius-size @outer-color;
+					background: @inner-color;
+					cursor: pointer;
+					
+					&:hover {
+						background: @inner-color-hover;
+					}
+					
+					span, &::before, &::after {
+						background: none;
+						content: "";
+						
+						display: block;
+						position: absolute;
+						margin: none;
+
+						top: @figure-thikness;
+						bottom: @figure-thikness;
+						left: @figure-thikness;
+						right: @figure-thikness;
+
+						border: solid @element-size/2 transparent;
+					}
+					
+					span.top {
+						top: 0;
+						border-top: solid @element-size/2 @outer-color;
+					}
+
+					span.bottom {
+						bottom: 0;
+						border-bottom: solid @element-size/2 @outer-color;
+					}
+
+					&::before {
+						left: 0;
+						border-left: solid @element-size/2 @outer-color;
+					}
+					
+					&::after {
+						right: 0;
+						border-right: solid @element-size/2 @outer-color;
+					}
+					
+					&:active {
+						background: @inner-color-active;
+						border-color: @outer-color-active;
+						
+						span.top {
+							border-top: solid @element-size/2 @outer-color-active;
+						}
+	
+						span.bottom {
+							bottom: 0;
+							border-bottom: solid @element-size/2 @outer-color-active;
+						}
+	
+						&::before {
+							left: 0;
+							border-left: solid @element-size/2 @outer-color-active;
+						}
+						
+						&::after {
+							right: 0;
+							border-right: solid @element-size/2 @outer-color-active;
+						}
+					}
+				}
+				
+				img {
+					border: solid 1px #888;
+					background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVQ4T2OcN2/efwY8IDAwEJ80A+OoAcMiDN6/f483Haxfvx5/Ohg1gIFx6IcBAFAqTTl5AsxeAAAAAElFTkSuQmCC) repeat;
+				}
+			}
+			
+			div.entryAttributes {
+				float: left;
+				
+				@labels-size: 130px;
+				
+				dl {
+					dt {
+						float: left;
+						width: @labels-size;
+						position: absolute;
+						
+						font-weight: bold;
+					}
+					
+					dd {
+						text-indent: @labels-size;
+
+						select {
+							width: 100px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

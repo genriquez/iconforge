@@ -1,0 +1,71 @@
+@import "../common/css/cssGradientButton.less";
+@import "../common/css/cssHacks.less";
+
+div.inspectorContent {
+	
+	margin: 40px 40px 40px 40px;
+
+	div.uploadButton {
+		.cssGradientButton(100px);
+		
+		&.activeDropZone {
+			font-size: x-large;
+
+			div.buttonText {
+				display: none;
+			}
+
+			div.buttonText.dropText {
+				display: block;
+			}
+		}
+	}
+
+	div.iconData {
+		margin-top: 40px;
+		
+		background: #EFEFEF;
+		border: solid 1px #888;
+		padding: 10px 10px 10px 10px;
+		border-radius: 5px;
+
+		div.iconEntry {
+			
+			width: 100%;
+			margin-top: 10px;
+			border-top: solid 1px #BBB;
+			border-bottom: solid 1px #BBB;
+			background: #FEFEFE;
+			
+			div.preview {
+				float: right;
+				width: 270px;
+				
+				img {
+					border: solid 1px #888;
+					background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVQ4T2OcN2/efwY8IDAwEJ80A+OoAcMiDN6/f483Haxfvx5/Ohg1gIFx6IcBAFAqTTl5AsxeAAAAAElFTkSuQmCC) repeat;
+				}
+			}
+			
+			div.entryAttributes {
+				float: left;
+				
+				@labels-size: 150px;
+				
+				dl {
+					dt {
+						float: left;
+						width: @labels-size;
+						position: absolute;
+						
+						font-weight: bold;
+					}
+					
+					dd {
+						text-indent: @labels-size;
+					}
+				}
+			}
+		}
+	}
+}

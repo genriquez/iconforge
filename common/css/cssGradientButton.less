@@ -1,0 +1,30 @@
+.cssGradientButton ( @height ){
+	display: block;
+	height: @height;
+	line-height: @height;
+	overflow: hidden;
+	
+	border-radius: 10px;
+	border: solid 1px #AAA;
+	background-image: -moz-linear-gradient(bottom, rgb(190,190,190) 21%, rgb(240,240,240) 71%);
+	background-image: -webkit-linear-gradient(bottom, rgb(190,190,190) 21%, rgb(240,240,240) 71%);
+
+	text-align: center;
+	vertical-align: middle;
+
+	&:hover {
+		color: gray;
+		background-image: -moz-linear-gradient(bottom, rgb(210,210,210) 21%, rgb(255,255,255) 71%);
+		background-image: -webkit-linear-gradient(bottom, rgb(210,210,210) 21%, rgb(255,255,255) 71%);
+	}
+
+	&:active {
+		color: white;
+		background-image: -moz-linear-gradient(bottom, rgb(50,50,50) 21%, rgb(0,0,0) 71%);
+		background-image: -webkit-linear-gradient(bottom, rgb(50,50,50) 21%, rgb(0,0,0) 71%);
+	}
+	
+	&, *, *::-webkit-file-upload-button {
+		cursor: pointer;
+	}
+}
