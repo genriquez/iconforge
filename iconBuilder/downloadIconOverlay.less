@@ -1,0 +1,61 @@
+@import "../common/css/cssGradientButton.less";
+
+div.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left:0;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 100;
+	
+	div.message {
+		@width: 500px;
+		@height: 200px;
+		
+		position: fixed;
+		right: 50%;
+		top: 50%;
+
+		width: @width;
+		height: @height;
+		line-height: @height / 2;
+		
+		margin-top: -@height/2;
+		margin-right: -@width/2;
+
+		text-align: center;
+		vertical-align: middle;
+		
+		background: #DFDFEF;
+		border: solid 1px #BBB;
+		border-radius: 10px;
+		
+		a.button {
+			.cssGradientButton(35px);
+
+			margin-left: @width / 5;
+			margin-right: @width / 5;
+			border-radius: 3px;
+			text-decoration: none;
+			color: black;
+		}
+		
+		a.close {
+			float: right;
+			top: 10px;
+			position: relative;
+			line-height: 15px;
+			right: 10px;
+			cursor: pointer;
+			
+			&:hover {
+				color: red;
+			}
+			
+			&:active {
+				color: yellow;
+			}
+		}
+	}
+}

@@ -46,6 +46,11 @@
 		var self = this;
 		$.extend(this, {
 			
+			splice: function(start, end) {
+			   dataArray = dataArray.subarray(start, end || dataArray.length);
+			   dataType = "";	//Incomplete data has no dataType
+			},
+			
 			concat: function( target ) {
 				var currentSize = this.getSize();
 				var dataArray = Uint8Array(currentSize + target.getSize());

@@ -113,7 +113,7 @@ var Helpers = {
 				imageArrayData[11] = imageArrayData[7];
 				
 				var binaryStringData = new $.BinaryData(imageArrayData).toBinaryString();
-				return $.BinaryData.fromBinaryString(Helpers.byteArrayToBinaryString(BMP_DEFAULT_HEADER) + binaryStringData, PNG_MIME_TYPE);
+				return $.BinaryData.fromBinaryString(Helpers.byteArrayToBinaryString(BMP_DEFAULT_HEADER) + binaryStringData, BMP_MIME_TYPE);
 			}
 		};
 		
@@ -175,20 +175,34 @@ var Helpers = {
 		imageOffset: null	//Offset in bytes from begining of file
 	};
 	
-	IconEntry.createFromCanvas = function( canvas, iconFile ){
+	IconEntry.createFromCanvas = function( canvas, iconFile, format ){
 		var iconEntry = new $.IconEntry(iconFile);
 		if( iconFile ) {
 			iconFile.addEntry(iconEntry);
 		}
 		
-		var imageBinaryData = $.BinaryData.fromDataURL(canvas.toDataURL("image/png"));
 		iconEntry.setSize(canvas.height);
 		iconEntry.paletteSize = 0;
 		iconEntry.colorPlanes = 1;
 		iconEntry.colorDepth  = 32;
-		iconEntry.setImageBinaryData(imageBinaryData);
+
+		var iconEntryDfr = $.Deferred();
+		$(canvas).exportCanvasImage(format).load(function() {
+			var imageBinaryData = $.BinaryData.fromDataURL(this.src);
+			if(format == "BMP") {	//BMP files do not include headers
+				imageBinaryData.splice(BMP_DEFAULT_HEADER.length);
+				
+				//HACK: Height of BMP entries in ICO files need to be unshifted by 1 bit (Induced from testing with prebuilt icon files)
+				var heightArray = $.Converters.intToByteArray(this.height * 2, 4);
+				imageBinaryData.toArrayBuffer()[8] = heightArray[0];
+				imageBinaryData.toArrayBuffer()[9] = heightArray[1];
+			}
+			
+			iconEntry.setImageBinaryData(imageBinaryData);
+			iconEntryDfr.resolveWith(iconEntry, [iconEntry]);
+		})
 		
-		return iconEntry;
+		return iconEntryDfr.promise();
 	};
 	
 	$.IconEntry = IconEntry;
@@ -243,9 +257,6 @@ var Helpers = {
 	
 	$.IconEntry.fromArray = function( iconFile, entryData, fileData ) {
 		var entry = new $.IconEntry(iconFile);
-		if(iconFile) {
-			
-		}
 		
 		entry.width  = entryData[0];
 		entry.height = entryData[1];

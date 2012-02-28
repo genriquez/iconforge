@@ -1,5 +1,5 @@
 steal('steal/less', 'jquery', 'jquery/controller', 'jquery/view', 'jquery/view/ejs')
-.then('common/js/image.extensions.js', 'common/js/jquery.FileReader.js', 'common/js/jquery.Icon.js', 'common/js/jquery.uploadZone.js')
+.then('common/js/jquery.FileReader.js', 'common/js/jquery.Icon.js', 'common/js/jquery.uploadZone.js')
 .then('./style.less', './structure.ejs', './icon.ejs', function(){
 
 	$.Controller("IconInspectorController",

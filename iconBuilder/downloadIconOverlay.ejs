@@ -1,0 +1,10 @@
+<div class="overlay">
+	<div class="message">
+		<a class="close"><b>X</b> Close</a>
+		<% if( name || url ) { %>
+			<h3>Your icon file is ready to be downloaded</h3><a class="button" download="<%= name  %>" href="<%= url %>">Get it!</a>
+		<% } else { %>
+			Your icon file is being prepared... Please wait.
+		<% } %>
+	</div>
+</div>
