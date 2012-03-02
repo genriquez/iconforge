@@ -103,7 +103,7 @@
 			
 			bmpInfoHeader = arraySliceCopy(bmpInfoHeader, $.Converters.intToByteArray(canvas.width, 4), 4);
 			bmpInfoHeader = arraySliceCopy(bmpInfoHeader, $.Converters.intToByteArray(canvas.height, 4), 8);
-			bmpInfoHeader = arraySliceCopy(bmpInfoHeader, $.Converters.intToByteArray(imageData.length), 20);
+			bmpInfoHeader = arraySliceCopy(bmpInfoHeader, $.Converters.intToByteArray(imageData.length, 4), 20);
 			
 			var fileData = BMP_FILE_HEADER.concat(bmpInfoHeader).concat(imageData);
 			return "data:image/bmp;base64," + btoa($.Converters.byteArrayToBinaryString(fileData))
