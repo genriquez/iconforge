@@ -94,7 +94,8 @@
 		"BMP": function( canvas ) {
 			var exportContext = $(canvas).clone()[0].getContext("2d");
 			exportContext.scale(1,-1);
-			exportContext.drawImage(canvas, 0 ,0, canvas.width, -canvas.height);
+			exportContext.translate(0, -canvas.height);
+			exportContext.drawImage(canvas, 0 ,0, canvas.width, canvas.height);
 			
 			var bmpInfoHeader = [].concat(BMP_INFO_HEADER);
 			var imageData = $.Converters.enumerableToArray(exportContext.getImageData(0,0,canvas.width, canvas.height).data);
